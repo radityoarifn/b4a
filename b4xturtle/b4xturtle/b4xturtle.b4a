@@ -1,0 +1,61 @@
+﻿Build1=Default,b4a.example
+File1=Main.bal
+FileGroup1=Default Group
+Group=Default Group
+Library1=core
+Library2=b4xturtle
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="30"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.LightTheme)~\n~'End of default text.~\n~
+Module1=Starter
+NumberOfFiles=1
+NumberOfLibraries=2
+NumberOfModules=1
+Version=9.9
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: B4A Example
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: portrait
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+
+#Region Activity Preparation
+'Template version 1.00
+Sub Process_Globals
+
+End Sub
+
+Sub Globals
+	Private xui As XUI
+	Private Turtle As B4XTurtle
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	Activity.LoadLayout("Main")
+End Sub
+
+Sub btnRestart_Click
+	Turtle.Stop.ClearScreen.Home
+	Turtle_Start
+End Sub
+
+Sub Activity_Resume
+	Turtle.Resume
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+	Turtle.Pause
+End Sub
+#End Region
+
+'B4XTurtle examples: https://www.b4x.com/android/forum/threads/examples-for-teachers-and-parents.116979
+Sub Turtle_Start
+	Turtle.SetPenColor(xui.Color_Blue).SetPenSize(5).SetSpeedFactor(1)	
+	Turtle.MoveForward(100)
+End Sub
